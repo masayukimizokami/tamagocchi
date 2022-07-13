@@ -1,0 +1,46 @@
+<p id="notice"><%= notice %></p>
+
+<div class="room-show-image">
+ 		<%= image_tag @pet.image ,class:'dogrun-show-image'%>
+	</div>
+
+<p>
+  <strong>名前:</strong>
+  <%= @pet.name %>
+</p>
+
+<p>
+  <strong>性格:</strong>
+  <%= @pet.kind %>
+</p>
+
+<p>
+  <strong>コメント:</strong>
+  <%= @pet.pr %>
+</p>
+
+<p>
+  <strong>手紙１:</strong>
+  <%= @pet.letter %>
+</p>
+
+<p>
+  <strong>手紙２:</strong>
+  <%= @pet.letter2 %>
+</p>
+
+<p>
+  <strong>手紙３:</strong>
+  <%= @pet.letter3 %>
+</p>
+
+<div class="room-show-image">
+ 		<%= image_tag @pet.zzimage ,class:'dogrun-show-image'%>
+	</div>
+
+<div class="room-show-image">
+ 		<%= image_tag @pet.runimage ,class:'dogrun-show-image'%>
+	</div>
+
+<%= link_to '編集', edit_pet_path(@pet) %> |
+<%= link_to 'トップ', pets_path %>

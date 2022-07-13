@@ -1,0 +1,57 @@
+<p id="notice"><%= notice %></p>
+<!--headerのロゴリンクを、dogrun/indexページにする
+-->
+<h1>Pets</h1>
+<%= @time %>
+
+
+
+<table>
+  <thead>
+    <tr>
+      <th>名前</th>
+      <th>写真</th>
+      <th>性格</th>
+      <th>コメント</th>
+      <!--<th>User</th>
+      <th>Letter</th>
+      <th>Letter2</th>
+      <th>Letter3</th>-->
+      <th>Zzimage</th>
+      <th>Runimage</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @pets.each do |pet| %>
+      <tr>
+        <td><%= pet.name %></td>
+        <% if @time < '20' %>
+          <td><%= image_tag pet.image , class:'fluffy' %>20秒まで</td>
+        <% elsif @time < '40' and @time >= '20'%>
+          <td><%= image_tag pet.zzimage ,class:'zzz'%>４０秒まで</td>
+       <% else %>
+          <td><%= image_tag pet.runimage , class:'ikari'%>４０秒以降</td>
+        <% end %>
+        <td><%= pet.kind %></td>
+        <td><%= pet.pr %></td>
+       <!-- <td><%= pet.user_id %></td>
+        <td><%= pet.letter %></td>
+        <td><%= pet.letter2 %></td>
+        <td><%= pet.letter3 %></td>
+        <td><%= image_tag pet.zzimage %></td>
+        <td><%= image_tag pet.runimage %></td>-->
+        <td><%= link_to 'Show', pet %></td>
+        <td><%= link_to 'run', run_pets_path %></td>
+        <td><%= link_to 'Edit', edit_pet_path(pet) %></td>
+        <td><%= link_to 'Destroy', pet, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Pet', new_pet_path %>
+

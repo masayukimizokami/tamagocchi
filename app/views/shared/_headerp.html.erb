@@ -1,0 +1,17 @@
+
+<%= link_to 'pets index', pets_path %>
+<%= link_to "設定ページ", edit_user_registration_path(current_user) %>
+        <!--ユーザー名-->
+        <% if user_signed_in? %>
+          <% if current_user.image.attached? %>
+            <div><%= image_tag current_user.image,class: 'header-user-image' %></div>
+          <% else %>
+            <div><%= image_tag 'no-image.user.png' ,class: 'header-user-image'%></div>
+          <% end %>
+            <%= current_user.name %>
+            <%= link_to "ログアウト", destroy_user_session_path, method: :delete %>
+        <% else %>
+            <p>ログインしていません</p>
+            <%= link_to "ログイン", new_user_session_path%>
+            <%= link_to "新規登録", new_user_registration_path %>
+        <% end %>

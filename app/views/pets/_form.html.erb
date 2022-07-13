@@ -1,0 +1,66 @@
+<%= form_with(model: pet) do |form| %>
+  <% if pet.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(pet.errors.count, "error") %> 保存できてます？:</h2>
+
+      <ul>
+        <% pet.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="actions">
+    <%= form.submit "登録" %>
+  </div>
+
+  <div class="field">
+    <%= form.label :名前 %>
+    <%= form.text_field :name %>
+  </div>
+
+  <div class="field">
+    <%= form.label :写真 %>
+    <%= form.file_field :image %>
+  </div>
+
+  <div class="field">
+    <%= form.label :性格 %>
+    <%= form.text_field :kind %>
+  </div>
+
+  <div class="field">
+    <%= form.label :コメント %>
+    <%= form.text_area :pr %>
+  </div>
+
+  <div class="field">
+    <%= form.label :手紙１ %>
+    <%= form.text_area :letter %>
+  </div>
+
+  <div class="field">
+    <%= form.label :手紙２ %>
+    <%= form.text_area :letter2 %>
+  </div>
+
+  <div class="field">
+    <%= form.label :手紙３ %>
+    <%= form.text_area :letter3 %>
+  </div>
+
+  <div class="field">
+    <%= form.label :寝顔 %>
+    <%= form.file_field :zzimage %>
+  </div>
+
+  <div class="field">
+    <%= form.label :怒り顔 %>
+    <%= form.file_field :runimage %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit "登録" %>
+  </div>
+<% end %>
